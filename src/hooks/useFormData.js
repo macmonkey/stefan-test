@@ -15,13 +15,19 @@ const initialData = [
     beschreibung: '',
     someNumber  : ''
   }
-
 ];
+
+
+const weekdays    = ['Monday', 'Tuesday'];
+const dayInitData = {beschreibung: '', someNumber: ''};
 
 
 const useFormData = () =>
 {
-  const [formData, setFormData] = useState(initialData);
+  const [formData, setFormData] = useState(() =>
+  {
+    return weekdays.map(() => {return dayInitData;});
+  });
 
   const fetchFormData = () =>
   {
@@ -66,4 +72,4 @@ const useFormData = () =>
   return {formData, fetchFormData, updateFieldValue};
 };
 
-export {FormContext, useFormData};
+export {FormContext, useFormData, weekdays};
